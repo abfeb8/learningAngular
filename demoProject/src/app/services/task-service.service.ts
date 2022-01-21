@@ -20,6 +20,12 @@ export class TaskServiceService {
       description: "purchase data plain for mobile",
       reminder: true
     },
+    {
+      id: 3,
+      title: "Gym",
+      description: "go to gym",
+      reminder: true
+    },
   ]
 
   constructor() { }
@@ -30,5 +36,9 @@ export class TaskServiceService {
 
   removeTask(item: Item) {
     console.log("remove task with id: " + item.id);
+  }
+
+  addTask(item: Item) {
+    this.items.push(item);
   }
 }

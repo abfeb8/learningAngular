@@ -7,11 +7,13 @@ import { Item } from 'src/app/interfaces/item';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  addTaskBool: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
   addTask() {
+    this.addTaskBool = !(this.addTaskBool);
     console.log("Add new task!");
   }
 }

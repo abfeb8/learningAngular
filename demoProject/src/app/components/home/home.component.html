@@ -5,6 +5,7 @@
             <h1>Task</h1>
             <app-button cls="btn-primary" text="Add" (btnClick)="addTask()"></app-button>
         </div>
+        <app-add-form *ngIf="addTaskBool" class="card-body form"></app-add-form>
         <app-tasks-panel class="card-body"></app-tasks-panel>
     </div>
 </div>
