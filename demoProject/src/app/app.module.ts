@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ButtonComponent } from './components/button/button.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ItemComponent } from './components/item/item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ButtonComponent
+    ButtonComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

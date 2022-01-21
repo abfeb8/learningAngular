@@ -7,12 +7,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
   @Input() text!: string;
+  @Input() cls!: string;
   @Output() btnClick = new EventEmitter();
+  baseClass: string = "btn";
 
   constructor() { }
 
   ngOnInit(): void {
-
+    this.baseClass += " " + this.cls;
   }
 
   onClick() {
