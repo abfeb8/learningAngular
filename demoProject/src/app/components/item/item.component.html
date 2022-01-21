@@ -1,0 +1,9 @@
+<div class="item">
+    <div class="description">
+        <h6>{{item.title}}</h6>
+        <p>{{item.description}}</p>
+    </div>
+    <div class="delButton">
+        <app-button cls="btn-danger" text="X" (btnClick)="delItem(item.title)"></app-button>
+    </div>
+</div>

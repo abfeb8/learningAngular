@@ -1,0 +1,29 @@
+.item {
+    height: 60px;
+    margin-bottom: 4px;
+    /* border: 1px solid rgba(122, 122, 122, 0.178); */
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(165, 174, 177, 0.178);
+}
+
+.description {
+    padding-left: 8px;
+    width: 380px;
+}
+
+.description p {
+    font-size: 12.5px;
+    margin: 0;
+    margin-right: 5px;
+    display: flex;
+    align-content: center;
+}
+
+.delButton {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    border-radius: 50%;
+}
