@@ -7,13 +7,15 @@ import { HomeComponent } from './components/home/home.component';
 import { ButtonComponent } from './components/button/button.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ItemComponent } from './components/item/item.component';
+import { TasksPanelComponent } from './components/tasks-panel/tasks-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ButtonComponent,
-    ItemComponent
+    ItemComponent,
+    TasksPanelComponent
   ],
   imports: [
     BrowserModule,

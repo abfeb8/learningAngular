@@ -1,2 +1,10 @@
 <!-- here i'll add all the routing links -->
-<app-button class="btn" text="home" (btnClick)="onClick()"></app-button>
+<div class="container task">
+    <div class="card">
+        <div class="card-header">
+            <h1>Task</h1>
+            <app-button cls="btn-primary" text="Add" (btnClick)="addTask()"></app-button>
+        </div>
+        <app-tasks-panel class="card-body"></app-tasks-panel>
+    </div>
+</div>

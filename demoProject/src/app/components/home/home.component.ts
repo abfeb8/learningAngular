@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Item } from 'src/app/interfaces/item';
 
 @Component({
   selector: 'app-home',
@@ -6,12 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
   }
-  onClick() {
-    console.log("hello");
+  addTask() {
+    console.log("Add new task!");
   }
 }
