@@ -10,6 +10,8 @@ import { TaskServiceService } from 'src/app/services/task-service.service';
 })
 export class AddFormComponent implements OnInit {
   taskForm!: FormGroup;
+  description: string = "";
+  charLimit: number = 50;
   constructor(private taskService: TaskServiceService, private formbuilder: FormBuilder) { }
 
   ngOnInit(): void {

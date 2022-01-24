@@ -5,7 +5,15 @@
     </div>
     <div class="form-group">
         <label for="taskDescription">Description</label>
-        <textarea class="form-control" formControlName="taskDescription" rows="2"></textarea>
+        <textarea class="form-control" formControlName="taskDescription" rows="2" [(ngModel)]="description"></textarea>
+        <div *ngIf="description.length<=charLimit; else charLimitWaring">
+            <small>Character Left: {{charLimit-description.length}}</small>
+        </div>
+        <ng-template #charLimitWaring>
+            <small style="color: red;">
+                Description should be less then {{charLimit}} characters!
+            </small>
+        </ng-template>
     </div>
     <div class="form-group">
         <label for="taskTime">Time</label>
