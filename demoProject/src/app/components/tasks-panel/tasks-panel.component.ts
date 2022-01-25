@@ -13,7 +13,7 @@ export class TasksPanelComponent implements OnInit {
   constructor(private taskServices: TaskServiceService) { }
 
   ngOnInit(): void {
-    this.taskServices.getALLTasks().subscribe(val => this.items = val)
+    this.taskServices.getALLTasks().subscribe((val) => this.items = val)
   }
 
 }

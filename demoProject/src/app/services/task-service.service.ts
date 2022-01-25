@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable, of } from 'rxjs';
 import { Item } from '../interfaces/item';
 
@@ -7,38 +8,22 @@ import { Item } from '../interfaces/item';
 })
 export class TaskServiceService {
   // mock items 
-  items: Item[] = [
-    {
-      id: 1,
-      title: "Shopping",
-      description: "Go to mall for grocery shoping",
-      reminder: false
-    },
-    {
-      id: 2,
-      title: "Recharge",
-      description: "purchase data plain for mobile",
-      reminder: true
-    },
-    {
-      id: 3,
-      title: "Gym",
-      description: "go to gym",
-      reminder: true
-    },
-  ]
+  url: string = "http://localhost:3000/tasks";
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getALLTasks(): Observable<Item[]> {
-    return of(this.items);
+    return this.http.get<Item[]>(this.url);
   }
 
-  removeTask(item: Item) {
-    console.log("remove task with id: " + item.id);
+  removeTask(item: Item): Observable<Item> {
+    console.log(`remove ${item.title} @ ${this.url}/${item.id}`);
+    const delUrl = `${this.url}/${item.id}`
+    return this.http.delete<Item>(delUrl);
   }
 
-  addTask(item: Item) {
-    this.items.push(item);
+  addTask(item: Item): Observable<Item> {
+    console.log(item);
+    return this.http.post<Item>(this.url, item);
   }
 }

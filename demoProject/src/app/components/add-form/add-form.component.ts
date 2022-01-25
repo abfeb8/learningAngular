@@ -32,7 +32,7 @@ export class AddFormComponent implements OnInit {
       description: this.taskForm.value.taskDescription,
       reminder: this.taskForm.value.boolReminder,
     }
-    this.taskService.addTask(item);
+    this.taskService.addTask(item).subscribe();
   }
 
 }

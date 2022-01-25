@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { filter } from 'rxjs';
 import { Item } from 'src/app/interfaces/item';
 import { TaskServiceService } from 'src/app/services/task-service.service';
 
@@ -15,7 +16,6 @@ export class ItemComponent implements OnInit {
   }
 
   delItem(title: string) {
-    this.taskService.removeTask(this.item)
-    console.log("Delete " + title);
+    this.taskService.removeTask(this.item).subscribe();
   }
 }
