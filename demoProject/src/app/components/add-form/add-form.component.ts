@@ -25,7 +25,7 @@ export class AddFormComponent implements OnInit {
         ]],
         taskTime: ["", [
         ]],
-        boolReminder: ["false"]
+        boolReminder: ""
       }
     )
   }
@@ -41,7 +41,8 @@ export class AddFormComponent implements OnInit {
     {
       title: this.taskForm.value.taskLable,
       description: this.taskForm.value.taskDescription,
-      reminder: this.taskForm.value.boolReminder,
+      reminder: this.taskForm.value.boolReminder ? true : false,
+      date: this.taskForm.value.taskTime
     }
     this.addTaskEvent.emit(item);
   }
