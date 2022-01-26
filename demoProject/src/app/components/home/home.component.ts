@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/interfaces/item';
+import { TaskServiceService } from 'src/app/services/task-service.service';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,23 @@ import { Item } from 'src/app/interfaces/item';
 })
 export class HomeComponent implements OnInit {
   addTaskBool: boolean = false;
-  constructor() { }
+  buttonText: string = "Add"
+  constructor(private taskService: TaskServiceService) { }
 
   ngOnInit(): void {
   }
-  addTask() {
-    this.addTaskBool = !(this.addTaskBool);
-    console.log("Add new task!");
+  toggleForm() {
+    if (this.addTaskBool) {
+      this.addTaskBool = false;
+      this.buttonText = "Add"
+    } else {
+      this.addTaskBool = true;
+      this.buttonText = "^"
+    }
+  }
+
+  addTask(item: Item) {
+    this.taskService.addTask(item).subscribe();
+    this.toggleForm();
   }
 }

@@ -1,20 +1,27 @@
 <form [formGroup]="taskForm">
     <div class="form-group">
-        <label for="taskLable">Lable</label>
+        <label for="taskLable">Lable*</label>
         <input type="text" class="form-control" formControlName="taskLable" placeholder="Task..">
-    </div>
-    <div class="form-group">
-        <label for="taskDescription">Description</label>
-        <textarea class="form-control" formControlName="taskDescription" rows="2" [(ngModel)]="description"></textarea>
-        <div *ngIf="description.length<=charLimit; else charLimitWaring">
-            <small>Character Left: {{charLimit-description.length}}</small>
+        <div *ngIf="taskLable.touched && taskLable.invalid">
+            <span>
+                <small style="color: rgb(190, 36, 36);">This field is required!!</small>
+            </span>
         </div>
-        <ng-template #charLimitWaring>
-            <small style="color: red;">
-                Description should be less then {{charLimit}} characters!
-            </small>
-        </ng-template>
     </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" formControlName="taskDescription" rows="2"></textarea>
+        <div>
+            <span *ngIf="taskDescription?.errors?.['maxlength'] && taskDescription?.dirty; else charCount ">
+                <small style="color: rgb(190, 36, 36);">Charachter count should be less then 50!</small>
+            </span>
+            <ng-template #charCount>
+                <small>{{charLimit - taskDescription?.value.length}}</small>
+            </ng-template>
+        </div>
+    </div>
+
     <div class="form-group">
         <label for="taskTime">Time</label>
         <input type="date" class="form-control" formControlName="taskTime">
@@ -24,5 +31,5 @@
         <label class="form-check-label" for="boolReminder">Set Reminder</label>
     </div>
 
-    <button type="submit" class="btn btn-primary" (click)="addTask()">Submit</button>
+    <button type="submit" [disabled]="taskForm.invalid" class="btn btn-primary" (click)="addTask()">Submit</button>
 </form>

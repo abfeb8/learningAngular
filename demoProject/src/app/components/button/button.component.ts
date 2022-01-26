@@ -14,7 +14,7 @@ export class ButtonComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.baseClass += " " + this.cls;
+    this.baseClass = this.cls + " " + this.baseClass;
   }
 
   onClick() {
