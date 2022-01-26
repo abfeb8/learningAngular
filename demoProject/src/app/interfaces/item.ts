@@ -3,4 +3,5 @@ export interface Item {
     title: string;
     description: string;
     reminder: boolean;
+    date?: Date;
 }
