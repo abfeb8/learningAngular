@@ -17,7 +17,7 @@
                 <small style="color: rgb(190, 36, 36);">Charachter count should be less then 50!</small>
             </span>
             <ng-template #charCount>
-                <small>{{charLimit - taskDescription?.value.length}}</small>
+                <small>Charachter left: {{ charLimit - taskDescription?.value.length }}</small>
             </ng-template>
         </div>
     </div>
@@ -26,10 +26,11 @@
         <label for="taskTime">Time</label>
         <input type="date" class="form-control" formControlName="taskTime">
     </div>
+
     <div class="form-check">
         <input type="checkbox" class="form-check-input" formControlName="boolReminder">
         <label class="form-check-label" for="boolReminder">Set Reminder</label>
     </div>
-
+    <br>
     <button type="submit" [disabled]="taskForm.invalid" class="btn btn-primary" (click)="addTask()">Submit</button>
 </form>
