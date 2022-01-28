@@ -19,10 +19,10 @@
       "title": "Gym",
       "description": "go to gym",
       "date": "2022-01-27",
-      "reminder": true
+      "reminder": false
     },
     {
-      "title": "abc",
+      "title": "test",
       "description": "",
       "reminder": false,
       "date": "",

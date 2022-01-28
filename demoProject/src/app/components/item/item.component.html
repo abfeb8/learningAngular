@@ -1,4 +1,4 @@
-<div class="item">
+<div [ngClass]="{ reminder: isReminder }" class="item">
     <div class="description">
         <h6>{{item.title | titlecase}}</h6>
         <p>{{item.description}}</p>

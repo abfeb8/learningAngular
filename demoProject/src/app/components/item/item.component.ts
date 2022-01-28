@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { filter } from 'rxjs';
 import { Item } from 'src/app/interfaces/item';
 import { TaskServiceService } from 'src/app/services/task-service.service';
 
@@ -10,9 +9,11 @@ import { TaskServiceService } from 'src/app/services/task-service.service';
 })
 export class ItemComponent implements OnInit {
   @Input() item!: Item;
+  isReminder: boolean = false;
   constructor(private taskService: TaskServiceService) { }
 
   ngOnInit(): void {
+    this.isReminder = this.item.reminder;
   }
 
   delItem(title: string) {
